@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+
+                $.ajax({
+                    headers: {
+                        "user-key": "6fe5fa83837e6e8338f88bf64fd863e3",
+                        "Accept": "application/json"
+                    },
+                    url: "https://developers.zomato.com/api/v2.1/categories",
+                    success: function(result){
+                        console.log(result);
+                    }
+                });
+
+
+//                $.ajax({url: "demo_test.txt", success: function(result){
+//                    $("#div1").html(result);
+//                }});
+            });
+        });
+    </script>
+</head>
+<body>
+
+<div id="div1"><h2>Let jQuery AJAX Change This Text</h2></div>
+
+<button>Get External Content</button>
+
+</body>
+</html>
