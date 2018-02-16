@@ -1,0 +1,15 @@
+.top_bar{
+    background-image: url("food-background-2.jpg");
+}
+.logo{
+    margin-top: 8%;
+}
+.row{
+    margin-top: 5%;
+    padding-bottom: 3%;
+}
+
+.padding-0{
+    padding-right:0.5%;
+    padding-left:0;
+}
