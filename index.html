@@ -32,8 +32,6 @@
                        get_locationDetails(entity_id,entity_type);
                     }
                 });
-
-
             });
 
             function get_locationDetails(entity_id,entity_type) {
@@ -51,16 +49,30 @@
             }
 
             function display_data(result) {
+                console.log(result);
+                cuisines=result.top_cuisines;
+                var length=cuisines.length;
 
+                document.getElementById('cuisine_box').innerHTML=' <div class="card text-left" >\n' +
+                    '                <div class="card-header" style="color:#dc3545"><b>CUISINES</b></div>\n' +
+                    '                <div class="card-body " id="cuisines">\n' +
+                    '\n' +
+                    '                </div>\n' +
+                    '            </div>'
+
+                for(var i=0;i<length;i++)
+                {
+                    $("#cuisines").append(cuisines[i]+"<br>");
+                }
                 details=result.best_rated_restaurant;
                 var len=details.length;
                 for(var i=0;i<len;i++)
-                {console.log(details[i]);
+                {
 
                     $("#show_data2").append('<div class="card text-left">'+
-                   ' <div class="card-header">Name of restaurant</div>'+
+                   ' <div class="card-header">Name of restaurant: '+details[i].restaurant.name+'</div>'+
                 '<div class="card-body ">'+
-                   ' Name:'+details[i].restaurant.name+'<br>'+
+
                 'Cost for two:'+details[i].restaurant.average_cost_for_two+'<br>'+
                 'Cuisines:'+details[i].restaurant.cuisines+'<br>'+
                 '</div>'+
@@ -85,19 +97,11 @@
 
 <div class="container text-center">
     <div class="row">
-        <div class="col-sm-3">
-            <div class="card text-left">
-                <div class="card-header" style="color:#dc3545"><b>CUISINES</b></div>
-                <div class="card-body ">
-                    Lorem Ipsum<br>
-                    Lorem Ipsum<br>
-                    Lorem Ipsum<br>
-                </div>
-            </div>
+        <div class="col-sm-3" id="cuisine_box">
+
         </div>
         <div class="col-sm-6" id="show_data2">
-            <!--Card-->
-          <!--/.Card-->
+
 
         </div>
     </div>
